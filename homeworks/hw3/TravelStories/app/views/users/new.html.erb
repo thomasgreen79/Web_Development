@@ -1,0 +1,38 @@
+<div class='row'>
+  <div class='col-md-6 col-md-offset-3 newUser'>
+    <div class=newUserLabel>New User</div>
+    <hr class="titleUnderline">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :email, class: 'loginEmail' %>
+      <%= f.email_field :email, class: 'loginEmailTextBox' %>
+
+      <%= f.label :password, class: 'loginPassword' %>
+      <%= f.password_field :password, class: 'loginPasswordTextBox' %>
+
+      <%= f.label :password_confirmation, "Confirmation", class: 'loginPassword' %>
+      <%= f.password_field :password_confirmation, class: 'loginPasswordTextBox' %>
+
+      <div class='loginLastName'>
+        <%= f.label :LastName, "Last" %>
+        <%= f.text_field :LastName, class: 'loginNameTextBox' %>
+      </div>
+
+      <div class='loginFirstName'>
+        <%= f.label :FirstName, "First" %>
+        <%= f.text_field :FirstName, class: 'loginNameTextBox' %>
+      </div>
+
+      </br>
+      <%= f.submit "Submit", class: "btn btn-primary loginSubmit" %>
+    <% end %>
+    </br>
+    <button class='reSelectUserButton'> Back </button></br>
+    <script>
+      $('.reSelectUserButton').on('click', function(){
+        setTimeout(window.location.replace("/login"), 250);
+      });
+    </script>
+  </div>
+</div>
