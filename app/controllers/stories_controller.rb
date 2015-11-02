@@ -33,6 +33,13 @@ class StoriesController < ApplicationController
     redirect_to user
   end
 
+  def show
+    story = Story.find(params[:id])
+    pages = story.pages.where(story_id: story.id)
+    first_page = pages.first
+    redirect_to first_page
+  end
+
   def destroy
     story = Story.find(params[:id])
     user = User.find(story.user_id)
