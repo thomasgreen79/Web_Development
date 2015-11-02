@@ -15,5 +15,23 @@
       </div>
 
     </div>
+    <div class="searchCenter">
+      Travel Style </br>
+      <div class="searchT">
+        <%= f.radio_button :travelStyle, "Economy" %>
+        <%= f.label :travelStyle_economy, "Economy" %></br>
+        <%= f.radio_button :travelStyle, "Glamping" %>
+        <%= f.label :travelStyle_glamping, "Glamping" %></br>
+        <%= f.radio_button :travelStyle, "Adventure" %>
+        <%= f.label :travelStyle_adventure, "Adventure" %></br>
+        <%= f.radio_button :travelStyle, "Spontaneous" %>
+        <%= f.label :travelStyle_spontaneous, "Spontaneous" %></br>
+      </div>
+    </div>
+
+    <div class="searchRight">
+      Story Type</br>
+    </div>
+
   <% end %>
 </div>
