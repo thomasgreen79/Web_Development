@@ -1,2 +1,9 @@
-<h1>StaticPages#search</h1>
-<p>Find me in app/views/static_pages/search.html.erb</p>
+<div class='searchForm'>
+  <% form_for (@storyLinks) do |f| %>
+    
+    <span class="searchAuthTitle">By Author</span></br>
+    <%= f.label :lastName, "Last Name", class: "searchLast" %>
+    <%= f.text_field :lastName, class: "searchATextBox" %>
+  
+  <% end %>
+</div>
