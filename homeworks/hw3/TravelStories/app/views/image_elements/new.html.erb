@@ -1,0 +1,8 @@
+<div>
+  <%= form_for(@image_element, html: { multipart: true }) do |i| %>
+    <span class='picture'>
+      <%= i.file_field :path %>
+    </span>
+    <%= i.submit "Save Image" %>
+  <% end %>
+</div>
