@@ -31,6 +31,21 @@
 
     <div class="searchRight">
       Story Type</br>
+      <div class="searchS">
+        <%= f.radio_button :storyType, "Humorous", class: 'newStoryRadioButton' %>
+        <%= f.label :storyType_humorous, "Humorous", class: 'newStorySubSection' %></br>
+        <%= f.radio_button :storyType, "Adventurous", class: 'newStoryRadioButton' %>
+        <%= f.label :storyType_adventurous, "Adventurous", class: 'newStorySubSection' %></br>
+        <%= f.radio_button :storyType, "Terrifying", class: 'newStoryRadioButton' %>
+        <%= f.label :storyType_terrifying, "Terrifying", class: 'newStorySubSection' %></br>
+        <%= f.radio_button :storyType, "Informative", class: 'newStoryRadioButton' %>
+        <%= f.label :storyType_informative, "Informative", class: 'newStorySubSection' %></br>
+
+      </div>
+    </div>
+    </br>
+    <div class="searchButtons">
+      <%= f.submit, "Submit Search" %>
     </div>
 
   <% end %>
