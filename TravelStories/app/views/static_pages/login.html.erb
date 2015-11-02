@@ -1,0 +1,21 @@
+<div class="newOrExisting centered">
+  <span class="userSelectText">Please login as:</span></br>
+  <button class="newUserButton"> New User </button></br>
+  <span class="userSelectText">Or</span></br>
+  <button class="existingUserButton"> Existing User </button></br>
+</div>
+
+<script>
+  $('.newUserButton').on('click', function(){
+    $('.newOrExisting').fadeOut(250);
+    setTimeout(window.location.replace("/login_new"), 250);
+  });
+</script>
+
+<script>
+  $('.existingUserButton').on('click', function(){
+    $('.newOrExisting').fadeOut(250);
+    setTimeout(window.location.replace("/login_existing"), 250);
+  });
+</script>
+

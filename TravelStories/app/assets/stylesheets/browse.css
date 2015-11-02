@@ -1,0 +1,32 @@
+.browseList{
+    width: 40%;
+    height: 400px;
+    border: 2px solid;
+    border-radius: 15px;
+	background-color: #ACCAAC;
+	font-size: 36pt;
+	font-family: Trebuchet MS;
+	margin-top: 4%;
+	margin-bottom: 4%;
+    margin-left: 10%;
+    padding-top: 1%;
+}
+
+.browseItem{
+	margin-top: 18px;
+	margin-bottom: 18px;
+	margin-left: 15%;
+}
+
+.storyLink > a{
+    font-size: 26pt;
+    font-family: ;
+    margin-left: 10%;
+    text-decoration: underline;
+}
+
+.storyDetails{
+    font-size: 18pt;
+    font-family: ;
+    margin-left: 1%;
+}

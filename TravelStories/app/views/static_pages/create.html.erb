@@ -1,0 +1,49 @@
+<div class='row newStoryDetails'>
+  <%= form_for(@story) do |f| %>
+    </br>
+    <div>
+      <%= f.label :name, "Name of Story", class: 'newStoryNameLabel' %>
+      </br>
+      <%= f.text_field :name, class: 'newStoryTextField' %>
+    </div>
+
+    </br>
+
+    <div>
+      <%= f.label :location, "Story Location", class: 'newStoryLocationLabel' %>
+      </br>
+      <%= f.text_field :location, class: 'newStoryTextField' %>
+    </div>
+
+    </br>
+
+    <div>    
+      <span class="newStoryLocationLabel"><%= f.label :travelStyle, "Style of Travel" %></span></br>
+      <%= f.radio_button :travelStyle, "Economy", class: 'newStoryRadioButton' %>
+      <%= f.label :travelStyle_economy, "Economy", class: 'newStorySubSection' %></br>
+      <%= f.radio_button :travelStyle, "Glamping", class: 'newStoryRadioButton' %>
+      <%= f.label :travelStyle_glamping, "Glamping", class: 'newStorySubSection' %></br>
+      <%= f.radio_button :travelStyle, "Adventure", class: 'newStoryRadioButton' %>
+      <%= f.label :travelStyle_adventure, "Adventure", class: 'newStorySubSection' %></br>
+      <%= f.radio_button :travelStyle, "Spontaneous", class: 'newStoryRadioButton' %>
+      <%= f.label :travelStyle_spontaneous, "Spontaneous", class: 'newStorySubSection' %></br>
+    </div>
+
+    </br>
+
+    <div>
+      <span class="newStoryStoryTypeLabel"><%= f.label :storyType %></span></br>
+      <%= f.radio_button :storyType, "Humorous", class: 'newStoryRadioButton' %>
+      <%= f.label :storyType_humorous, "Humorous", class: 'newStorySubSection' %></br>
+      <%= f.radio_button :storyType, "Adventurous", class: 'newStoryRadioButton' %>
+      <%= f.label :storyType_adventurous, "Adventurous", class: 'newStorySubSection' %></br>
+      <%= f.radio_button :storyType, "Terrifying", class: 'newStoryRadioButton' %>
+      <%= f.label :storyType_terrifying, "Terrifying", class: 'newStorySubSection' %></br>
+      <%= f.radio_button :storyType, "Informative", class: 'newStoryRadioButton' %>
+      <%= f.label :storyType_informative, "Informative", class: 'newStorySubSection' %></br>
+    </div>
+
+    </br>
+    <%= f.submit "Create Story", class: 'btn btn-primary addDetailsButton' %>
+  <% end %>
+</div>
