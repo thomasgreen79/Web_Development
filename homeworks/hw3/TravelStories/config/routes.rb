@@ -1,11 +1,31 @@
 Rails.application.routes.draw do
+  get 'pages/new'
+
+  get 'pages/show'
+
+  root 'static_pages#home'
+
+  get 'static_pages/browse'
+
+  get 'static_pages/search'
+
+  get 'static_pages/create'
+
+  get 'static_pages/about'
+
+  get 'login' => 'static_pages#login'
+
+  get 'login_new' => 'users#new'
+
   get 'login_existing' => 'sessions#new'
 
   post 'login' => 'sessions#create'
 
   delete 'logout' => 'sessions#destroy'
 
-  get 'users/new'
+  get 'stories/new'
+
+  get 'stories/create'
 
   get 'display_story_links/byName'
 
@@ -17,23 +37,26 @@ Rails.application.routes.draw do
 
   get 'display_story_links/byStoryType'
 
-  root 'static_pages#home'
+  get 'text_elements/new'
 
-  get 'static_pages/browse'
+  get 'image_elements/new'
 
-  get 'static_pages/search'
+  get 'pages/prev'
 
-  get 'login' => 'static_pages#login'
+  get 'pages/next'
 
-  get 'static_pages/create'
-
-  get 'static_pages/mystories'
-
-  get 'static_pages/about'
-
-  get 'login_new' => 'users#new'
+  get 'stories/done'
 
   resources :users
+
+  resources :stories
+
+  resources :pages
+
+  resources :text_elements
+
+  resources :image_elements
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

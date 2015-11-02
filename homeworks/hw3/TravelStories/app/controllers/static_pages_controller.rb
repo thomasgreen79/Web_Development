@@ -12,9 +12,11 @@ class StaticPagesController < ApplicationController
   end
 
   def create
-  end
-
-  def mystories
+    if working_story?
+      redirect_to pages_new_path
+    else
+      @story = current_user.stories.build
+    end
   end
 
   def about

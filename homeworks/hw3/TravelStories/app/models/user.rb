@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :stories, dependent: :destroy
   before_save { self.email = email.downcase }
   validates :LastName, presence: true, length: {maximum: 50 }
   validates :FirstName, presence: true, length: {maximum: 50 }

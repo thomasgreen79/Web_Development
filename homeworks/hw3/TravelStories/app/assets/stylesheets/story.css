@@ -119,10 +119,20 @@
     margin-left: 12%;
 }
 
-.newStorySubSection{
+.newStoryRadioButton{
+    margin-top: 5pt;
+    margin-left: 15%;
+}
+
+.newStoryTextField{
     font-size: 14pt;
     margin-top: 5pt;
     margin-left: 15%;
+}
+
+.newStorySubSection{
+    font-size: 14pt;
+    margin-top: 5pt;
 }
 
 .newStoryLocationLabel{
@@ -146,6 +156,7 @@
     height: 20pt;
     margin-top: 2pt;
     margin-left: 40%;
+    margin-bottom: 10pt;
 }
 
 .insertButtons{
@@ -160,6 +171,10 @@
     width: 40%;
     margin-left: 30%;
     margin-right: 30%;
+}
+
+.submitButton{
+    clear
 }
 
 .storyButtons{
