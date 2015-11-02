@@ -1,0 +1,12 @@
+<% @stories = params[:links] %>
+<% @stories.each do |story| %>
+  <% user = User.find(story.user_id) %>
+  <% lastName = user.LastName %>
+  <% firstName = user.FirstName %>
+  <% fullName = firstName + ' ' + lastName + "\t"%>
+  <% location = story.location %>
+  <% pages = story.pages.where(story_id: story.id) %>
+  <% first_page = pages.first %>
+  <div class='storyLink'><%= link_to story.name, first_page, method: :get %></div>
+  <div class='storyDetails'>Author: <%= fullName %> Location: <%= location %></div>
+<% end %>
