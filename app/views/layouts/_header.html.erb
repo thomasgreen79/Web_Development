@@ -1,0 +1,31 @@
+<header class="navbar">
+  <div class="container">
+    <nav>
+      <ul>
+        <li>
+          <label for="logo">
+            <%= link_to image_tag("logo_round.png", height: 45, width: 45), controller: 'static_pages', action: 'home' %>
+          </label>
+        </li>
+        <% if logged_in? %>
+          <% user = User.find(session[:user_id]) %>
+          <li class='navItemUser'><%= link_to "Browse", controller: 'static_pages', action: 'browse' %></li>
+          <li class='navItemUser'><%= link_to "Search", controller: 'static_pages', action: 'search' %></li>
+          <li class='navItemUser'><%= link_to "Logout", logout_path, method: "delete" %></li>
+          <% if working_story? %>
+            <li class='navItemUser'><%= link_to "Edit Story", controller: 'static_pages', action: 'create' %></li>
+          <% else %>
+            <li class='navItemUser'><%= link_to "Create New Story!", controller: 'static_pages', action: 'create' %></li>
+          <% end %>
+          <li class='navItemUser'><%= link_to "My Stories", user %></li>
+          <li class='navItemUser'><%= link_to "About", controller: 'static_pages', action: 'about' %></li>
+        <% else %>
+          <li class='navItemGuest'><%= link_to "Browse", controller: 'static_pages', action: 'browse' %></li>
+          <li class='navItemGuest'><%= link_to "Search", controller: 'static_pages', action: 'search' %></li>
+          <li class='navItemGuest'><%= link_to "Login", login_path %></li>
+          <li class='navItemGuest'><%= link_to "About", controller: 'static_pages', action: 'about' %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

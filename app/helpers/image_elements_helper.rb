@@ -1,0 +1,2 @@
+module ImageElementsHelper
+end

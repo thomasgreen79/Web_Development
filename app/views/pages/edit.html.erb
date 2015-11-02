@@ -1,0 +1,137 @@
+
+               <button class="serializeButton"> Save Layout </button>
+                <script type="text/javascript">
+                    var gridster;
+
+                    $(function(){
+                        gridster = $(".gridster ul").gridster({
+                            widget_base_dimensions: [25, 25],
+                            widget_margins: [1, 1],
+                            extra_rows: 4,
+                            helper: 'clone',
+                            resize: {
+                                enabled: true
+                            }
+                        }).data('gridster');
+                    });
+
+                </script>
+                <script type="text/javascript">
+                $('.serializeButton').on('click', function(){
+
+                        var gridster2 = $(".gridster ul").gridster().data('gridster');
+                        $(function(){
+                            gridster2 = $(".gridster ul").gridster({
+                                widget_margins: [1, 1],
+                                widget_base_dimensions: [25, 25],
+                                extra_rows:4,
+                                serialize_params: function($w, wgd) { 
+                                    return { 
+                                        id: $($w).attr('id'), 
+                                        col: wgd.col, 
+                                        row: wgd.row, 
+                                        size_x: wgd.size_x, 
+                                        size_y: wgd.size_y,
+                                        htmlContent: $($w).html()
+                                    };
+                                }
+                            })
+                            var gridster2 = $(".gridster ul").gridster().data('gridster');
+                            gridData = gridster2.serialize();
+                        });                            
+                        $(function(){
+                            $.ajax({
+                                url: 'layoutHandler.php',
+                                type: 'POST',
+                                data: {json: gridData},
+                                success: function(gridData){
+                                    alert("Page Saved");
+                                },
+                                error: function(xhr, desc, err){
+                                    alert (xhr.message);
+                                }
+                            })
+                        });
+                    });
+                </script>
+                <script>
+                    $(document).ready(function(){
+                        $("#imageBox1").resize(function(){
+                            $("#image1").height($("#imageBox1").height());
+                            $("#image1").width($("#imageBox1").width());
+                        });
+                    });
+                </script>
+                <script>
+                    $(document).ready(function(){
+                        $("#imageBox2").resize(function(){
+                            $("#image2").height($("#imageBox2").height());
+                            $("#image2").width($("#imageBox2").width());
+                        });
+                    });
+                </script>
+                <script>
+                    $(document).ready(function(){
+                        $("#imageBox3").resize(function(){
+                            $("#image3").height($("#imageBox3").height());
+                            $("#image3").width($("#imageBox3").width());
+                        });
+                    });
+                </script>
+                <script>
+                    $(document).ready(function(){
+                        $("#imageBox4").resize(function(){
+                            $("#image4").height($("#imageBox4").height());
+                            $("#image4").width($("#imageBox4").width());
+                        });
+                    });
+                </script>
+                <script>
+                    $(document).ready(function(){
+                        $("#imageBox5").resize(function(){
+                            $("#image5").height($("#imageBox5").height());
+                            $("#image5").width($("#imageBox5").width());
+                        });
+                    });
+                </script>
+                <script>
+                    $(document).ready(function(){
+                        $("#imageBox6").resize(function(){
+                            $("#image6").height($("#imageBox6").height());
+                            $("#image6").width($("#imageBox6").width());
+                        });
+                    });
+                </script>
+                <script>
+                    $(document).ready(function(){
+                        $("#imageBox7").resize(function(){
+                            $("#image7").height($("#imageBox7").height());
+                            $("#image7").width($("#imageBox7").width());
+                        });
+                    });
+                </script>
+                <script>
+                    $(document).ready(function(){
+                        $("#imageBox8").resize(function(){
+                            $("#image8").height($("#imageBox8").height());
+                            $("#image8").width($("#imageBox8").width());
+                        });
+                    });
+                </script>
+                <script>
+                    $(document).ready(function(){
+                        $("#imageBox9").resize(function(){
+                            $("#image9").height($("#imageBox9").height());
+                            $("#image9").width($("#imageBox9").width());
+                        });
+                    });
+                </script>
+                <script>
+                    $(document).ready(function(){
+                        $("#imageBox10").resize(function(){
+                            $("#image10").height($("#imageBox10").height());
+                            $("#image10").width($("#imageBox10").width());
+                        });
+                    });
+                </script>
+

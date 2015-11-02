@@ -1,0 +1,174 @@
+.loginScreen{
+	background-color: #A7A7E3;
+}
+
+.hidden{
+    display: none;
+}
+
+.newUser{
+	width: 44%;
+	border: 2px solid;
+	border-radius: 15px;
+	padding-top: 10px;
+    padding-bottom: 4%;
+	margin-top: 3%;
+	margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+	background-color: #ACCAAC;
+}
+
+.existingUser{
+	width: 44%;
+	border: 2px solid;
+	border-radius: 15px;
+	padding-top: 10px;
+    padding-bottom: 4%;
+	margin-top: 3%;
+	margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+	background-color: #ACCAAC;
+}
+
+.newOrExisting{
+    width: 30%;
+    height: 25%;
+    border: 2px solid;
+    border-radius: 15px;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    padding-top: 3%;
+    padding-bottom: 6%;
+    background-color: #ACCAAC;
+    text-align: center;
+}
+
+.centered{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.userSelectText{
+    font-size: 20pt;
+    font-family: High Tower Text;
+}
+
+.newUserButton{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    height: 25%;
+    width: 35%;
+    font-size: 16pt;
+    font-family: High Tower Text;
+}
+
+.existingUserButton{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 25%;
+    width: 35%;
+    font-size: 16pt;
+    font-family: High Tower Text;
+}
+
+.reSelectUserButton{
+    margin-left: 15%;
+    margin-top: 0;
+}
+
+.newUserLabel{
+	font-family: Monotype Corsiva;
+	font-size: 30pt;
+	padding-left: 5%;
+	text-align: center;
+}
+
+.existingUserLabel{
+	font-family: Monotype Corsiva;
+	font-size: 30pt;
+	padding-left: 5%;
+	text-align: center;
+}
+
+.loginEmailTextBox{
+	height: 30px;
+	width: 50%;
+	border-radius: 5px;
+        margin-left: 15%;
+	margin-bottom: 20px;
+	font-size: 16pt;
+	font-family: Monotype Corsiva;
+}
+
+.loginPasswordTextBox{
+	height: 30px;
+	width: 50%;
+	border-radius: 5px;
+        margin-left: 15%;
+	margin-bottom: 20px;
+	font-size: 16pt;
+	font-family: Monotype Corsiva;
+}
+
+.loginEmail {
+	font-family: Monotype Corsiva;
+	font-size: 26pt;
+	margin-top: 2%;
+	margin-left: 15%;
+	margin-right:35%;
+}
+
+.loginPassword {
+	font-family: Monotype Corsiva;
+	font-size: 26pt;
+	margin-left: 15%;
+	margin-right: 35%;
+}
+
+.loginSubmit{
+	margin-left: 15%;
+    margin-bottom: 0;
+}
+
+.loginLastName{
+    width: 30%;
+    font-size: 26pt;
+    margin: 0% 5% 4% 15%;
+    float: left;
+
+}
+
+.loginFirstName{
+    width: 30%;
+    font-size: 26pt;
+    margin: 0% 5% 4% 5%;
+    float: left;
+}
+
+.loginNameTextBox{
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16pt;
+}
+
+.titleUnderline{
+	width: 95%;
+	height: 3px;
+	margin-top: 2px;
+	margin-right: 4%;
+	margin-left: 3%;
+}
+
+.loginFeedback{
+    color: #AA1100;
+    margin-left: 15%;
+    margin-top: 0%;
+    margin-bottom: 5%;
+}
+
+#footer {
+	clear: both;
+}

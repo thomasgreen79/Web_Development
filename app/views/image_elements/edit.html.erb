@@ -1,0 +1,7 @@
+<div>
+  <%= form_for(@image_element) do |i| %>
+    <%= image_tag @image_element.path %>
+    <%= i.file_field :path %>
+    <%= i.submit "Update Image" %>
+  <% end %>
+</div>
