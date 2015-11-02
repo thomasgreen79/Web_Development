@@ -1,0 +1,196 @@
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "image_elements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "num" integer, "path" text, "page_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (5.4ms)[0m  [1mCREATE  INDEX "index_image_elements_on_page_id" ON "image_elements" ("page_id")[0m
+  [1m[35m (4.3ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "num" integer, "layout" text, "story_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (8.6ms)[0m  [1mCREATE  INDEX "index_pages_on_story_id" ON "pages" ("story_id")[0m
+  [1m[35m (5.6ms)[0m  CREATE TABLE "stories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location" varchar, "travelStyle" varchar, "storyType" varchar, "user_id" integer, "status" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (4.1ms)[0m  [1mCREATE  INDEX "index_stories_on_user_id" ON "stories" ("user_id")[0m
+  [1m[35m (8.5ms)[0m  CREATE TABLE "text_elements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "num" integer, "content" text, "page_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (4.1ms)[0m  [1mCREATE  INDEX "index_text_elements_on_page_id" ON "text_elements" ("page_id")[0m
+  [1m[35m (5.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "LastName" varchar, "FirstName" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (4.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (4.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151031053408')
+  [1m[36m (3.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151031021946')[0m
+  [1m[35m (4.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151030052555')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151031021842')[0m
+  [1m[35m (4.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151031022016')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "text_elements"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "text_elements" ("num", "content", "page_id", "created_at", "updated_at", "id") VALUES (1, 'MyText', NULL, '2015-11-02 08:26:04', '2015-11-02 08:26:04', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "text_elements" ("num", "content", "page_id", "created_at", "updated_at", "id") VALUES (1, 'MyText', NULL, '2015-11-02 08:26:04', '2015-11-02 08:26:04', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "stories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "stories" ("name", "location", "travelStyle", "storyType", "user_id", "status", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', NULL, 'MyString', '2015-11-02 08:26:04', '2015-11-02 08:26:04', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "stories" ("name", "location", "travelStyle", "storyType", "user_id", "status", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', NULL, 'MyString', '2015-11-02 08:26:04', '2015-11-02 08:26:04', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "pages"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "pages" ("num", "layout", "story_id", "created_at", "updated_at", "id") VALUES (1, 'MyText', NULL, '2015-11-02 08:26:04', '2015-11-02 08:26:04', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "pages" ("num", "layout", "story_id", "created_at", "updated_at", "id") VALUES (1, 'MyText', NULL, '2015-11-02 08:26:04', '2015-11-02 08:26:04', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "image_elements"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "image_elements" ("num", "path", "page_id", "created_at", "updated_at", "id") VALUES (1, 'MyText', NULL, '2015-11-02 08:26:04', '2015-11-02 08:26:04', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "image_elements" ("num", "path", "page_id", "created_at", "updated_at", "id") VALUES (1, 'MyText', NULL, '2015-11-02 08:26:04', '2015-11-02 08:26:04', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("LastName", "FirstName", "email", "password_digest", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-11-02 08:26:04', '2015-11-02 08:26:04', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("LastName", "FirstName", "email", "password_digest", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-11-02 08:26:04', '2015-11-02 08:26:04', 298486374)[0m
+  [1m[35m (3.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------
+DisplayStoryLinksControllerTest: test_should_get_byAuthor
+---------------------------------------------------------
+Processing by DisplayStoryLinksController#byAuthor as HTML
+  Rendered display_story_links/byAuthor.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (4.8ms)
+Completed 200 OK in 12ms (Views: 12.0ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------
+DisplayStoryLinksControllerTest: test_should_get_byStoryType
+------------------------------------------------------------
+Processing by DisplayStoryLinksController#byStoryType as HTML
+  Rendered display_story_links/byStoryType.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------
+DisplayStoryLinksControllerTest: test_should_get_byLocation
+-----------------------------------------------------------
+Processing by DisplayStoryLinksController#byLocation as HTML
+  Rendered display_story_links/byLocation.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------
+DisplayStoryLinksControllerTest: test_should_get_byTravelCategory
+-----------------------------------------------------------------
+Processing by DisplayStoryLinksController#byTravelCategory as HTML
+  Rendered display_story_links/byTravelCategory.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+DisplayStoryLinksControllerTest: test_should_get_byName
+-------------------------------------------------------
+Processing by DisplayStoryLinksController#byName as HTML
+  Rendered display_story_links/byName.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+StoriesControllerTest: test_should_get_new
+------------------------------------------
+Processing by StoriesController#new as HTML
+  Rendered stories/new.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 6ms (Views: 2.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (9.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 11ms (Views: 11.2ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------
+PagesControllerTest: test_should_get_new
+----------------------------------------
+Processing by PagesController#new as HTML
+  [1m[36mStory Load (0.1ms)[0m  [1mSELECT  "stories".* FROM "stories" WHERE "stories"."id" IS NULL LIMIT 1[0m
+Redirected to http://test.host/static_pages/create
+  [1m[35mPage Load (0.1ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."num" IS NULL AND "pages"."story_id" IS NULL LIMIT 1
+  [1m[36mStory Load (0.1ms)[0m  [1mSELECT  "stories".* FROM "stories" WHERE "stories"."id" IS NULL LIMIT 1[0m
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+PagesControllerTest: test_should_get_show
+-----------------------------------------
+Processing by PagesController#show as HTML
+  [1m[35mPage Load (0.1ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", nil]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+StaticPagesControllerTest: test_should_get_search
+-------------------------------------------------
+Processing by StaticPagesController#search as HTML
+  Rendered static_pages/search.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+StaticPagesControllerTest: test_should_get_browse
+-------------------------------------------------
+Processing by StaticPagesController#browse as HTML
+  Rendered static_pages/browse.html.erb within layouts/application (0.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------
+StaticPagesControllerTest: test_should_get_about
+------------------------------------------------
+Processing by StaticPagesController#about as HTML
+  Rendered static_pages/about.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_home
+-----------------------------------------------
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+ByNameControllerTest: test_should_get_byAuthor
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ByNameControllerTest: test_should_get_byStoryType
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------
+ByNameControllerTest: test_should_get_byLocation
+------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------
+ByNameControllerTest: test_should_get_byTravelCategory
+------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (6.3ms)
+  Rendered users/new.html.erb within layouts/application (8.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 14ms (Views: 10.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction

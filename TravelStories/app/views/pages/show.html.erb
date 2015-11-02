@@ -1,6 +1,0 @@
-<%= @text_elements.first.content %>
-<%= image_tag @image_elements[1].path.url if @image_elements[1] %>
-<%= @index %>
-
-<%= button_to "Prev Page", @prev_page, method: :get if @prev_page %>
-<%= button_to "Next Page", @next_page, method: :get if @next_page %>
