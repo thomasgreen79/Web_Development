@@ -1,9 +1,19 @@
 <div class='searchForm'>
-  <% form_for (@storyLinks) do |f| %>
-    
-    <span class="searchAuthTitle">By Author</span></br>
-    <%= f.label :lastName, "Last Name", class: "searchLast" %>
-    <%= f.text_field :lastName, class: "searchATextBox" %>
-  
+  <% form_for (@searchLinks) do |f| %>
+    <div class="searchLeft">
+      <div class"searchA">
+        <span class="searchAuthTitle">By Author</span></br>
+        <%= f.label :lastName, "Last Name", class: "searchLast" %>
+        <%= f.text_field :lastName, class: "searchATextBox" %>
+
+        <%= f.label :firstName, "First Name", class: "searchFirst" %>
+        <%= f.text_field :firstName, class: "searchATextBox" %>
+      </div>
+      <div class="searchL">
+        <%= f.label :location, "By Location", class: "searchLoc" %>
+        <%= f.text_field :location, class: "searchLTextBox" %>
+      </div>
+
+    </div>
   <% end %>
 </div>

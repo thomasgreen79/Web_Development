@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
   end
 
   def search
-    @storyLinks = StoryLinks.new
+    @searchLinks = SearchLinks.new
   end
 
   def login
