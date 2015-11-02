@@ -6,7 +6,7 @@
     <div class='storyLink'>
       <tr>
         <td><%= link_to story.name, first_page %></td>
-        <td><%= button_to "Edit", edit_story_path, method: :get, class: 'EditButton' %></td>
+        <td><%= button_to "Edit", {controller: stories, action: edit, id: story.id} method: :get, class: 'EditButton' %></td>
         <td><%= button_to story.status, { controller: 'stories', action: 'update', id: story.id }, method: :put, class: 'PublishButton' %></td>
         <td><%= button_to "Delete", { controller: 'stories', action: 'destroy', id: story.id }, method: :delete, class: 'deleteButton' %></td>
       </tr>
