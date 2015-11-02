@@ -1,2 +1,9 @@
-<h1>DisplayStoryLinks#byLocation</h1>
-<p>Find me in app/views/display_story_links/byLocation.html.erb</p>
+<% @stories.each do |story| %>
+  <% user = User.find(story.user_id) %>
+  <% lastName = user.LastName %>
+  <% firstName = user.FirstName %>
+  <% fullName = firstName + ' ' + lastName + "\t"%>
+  <% location = story.location %>
+  <div class='storyLink'><%= link_to story.name, story, method: :get %></div>
+  <div class='storyDetails'>Author: <%= fullName %> Location: <%= location %></div>
+<% end %>
