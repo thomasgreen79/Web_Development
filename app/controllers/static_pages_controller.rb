@@ -18,7 +18,6 @@ class StaticPagesController < ApplicationController
       else
         @story = current_user.stories.build
       end
-    end
   end
 
   def about
