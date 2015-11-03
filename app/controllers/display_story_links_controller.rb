@@ -18,4 +18,8 @@ class DisplayStoryLinksController < ApplicationController
   def byStoryType
     @stories = Story.where(status: "Published").order(:storyType)
   end
+
+  def bySearch
+    
+  end
 end
