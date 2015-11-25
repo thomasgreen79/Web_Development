@@ -6,7 +6,7 @@
 #
 
 development:
-  adapter: sqlite3
+  adapter: postgresql
   database: TravelStories_dev
   pool: 5
   timeout: 5000
