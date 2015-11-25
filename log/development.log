@@ -43889,3 +43889,129 @@ Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde45
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mStory Load (0.2ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 1
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (2.8ms)
+Completed 200 OK in 112ms (Views: 110.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/about.self-a7d5525149fa268b7146ca6a6547ec4484594aba687fd79f0f8bd9cbd2779f64.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/browse.self-a8d5f06574074d64d1a3f013d96d8a2832a901fbd454f59cbcfc3e045335b8d8.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/by_name.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/display_story_links.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/image_elements.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/jquery.gridster.self-a590861aa26fe63470f59d1b87e6cc8fc4242a8b849587922e9a8b65aad54db7.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/login.self-3f8e0ea9d6603cc468da767f10b03e3e643ffbcce2bb3b7d09ac5f6edd8861b4.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/myStories.self-eaa23c27b9ce3c821f1baf252b37fe78271314d459e43b12c41acb73f8cdbed8.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/search.self-48ff21ce00c08c4d08409373c5687acff8e3dc533982290599a29ebe85642aac.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/stories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/story.self-c40b81b54c60a25d067bfebfaad23cf842d519705fb20870e25e8ec611abc152.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/text_elements.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/travelstories.self-27c0f2da0091a9becb1c1eba6be8e6554ddfdd4a28adfb09462d0c56afff04ad.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/jquery.self-4c7649dd655c61cb850cfd2e71f937c3bbf3e3a752a3499ed8bb9884473fe1dd.js?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/display_story_links.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/image_elements.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/jquery.ba-resize.self-612043f024166623b1564c41353a7a3db4a99bacee6d8c623fe0b7bc9e2ae5a2.js?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/jquery.gridster.self-b19cc0c08191a16c47ff44322cecef504a041313377ee123cfa29ff83a9cc716.js?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/stories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started GET "/assets/text_elements.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:06:37 -0700
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2015-11-24 23:06:40 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bLpe8GKXfzFHFrpTl4SlokM5P8oZTivG+yZZDVd7pgXd8vurA1j4KQ5l8vTN858b3a/zS52ds6kL+58lhjuRCg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-24 23:06:40 -0700
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 82ms (Views: 81.2ms | ActiveRecord: 0.1ms)
