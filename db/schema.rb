@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031053408) do
+ActiveRecord::Schema.define(version: 20151125055632) do
 
   create_table "image_elements", force: :cascade do |t|
     t.integer  "num"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20151031053408) do
 
   add_index "image_elements", ["page_id"], name: "index_image_elements_on_page_id"
 
+  create_table "locations", force: :cascade do |t|
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pages", force: :cascade do |t|
     t.integer  "num"
     t.text     "layout"
@@ -32,6 +40,16 @@ ActiveRecord::Schema.define(version: 20151031053408) do
   end
 
   add_index "pages", ["story_id"], name: "index_pages_on_story_id"
+
+  create_table "search_links", force: :cascade do |t|
+    t.string   "lastName"
+    t.string   "firstName"
+    t.string   "location"
+    t.string   "travelStyle"
+    t.string   "storyType"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "stories", force: :cascade do |t|
     t.string   "name"
@@ -63,6 +81,7 @@ ActiveRecord::Schema.define(version: 20151031053408) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "ip"
   end
 
 end

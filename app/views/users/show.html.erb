@@ -13,4 +13,5 @@
     </div>
   <% end %>
 </table>
-<%= request.remote_ip %>
+<% current_user.ip = request.remote_ip %>
+<%= current_user.ip %>

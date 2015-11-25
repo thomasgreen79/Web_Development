@@ -43442,3 +43442,450 @@ PG::ConnectionBad (fe_sendauth: no password supplied
   Rendered /var/lib/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
   Rendered /var/lib/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
   Rendered /var/lib/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (21.9ms)
+  [1m[36m (6.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (4.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20151030052555)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "LastName" varchar, "FirstName" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151030052555"]]
+  [1m[35m (7.9ms)[0m  commit transaction
+Migrating to CreateStories (20151031021840)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "stories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location" varchar, "travelStyle" varchar, "storyType" varchar, "user_id" integer, "status" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_stories_on_user_id" ON "stories" ("user_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151031021840"]]
+  [1m[36m (4.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePages (20151031021842)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "num" integer, "layout" text, "story_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_pages_on_story_id" ON "pages" ("story_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151031021842"]]
+  [1m[35m (6.0ms)[0m  commit transaction
+Migrating to CreateTextElements (20151031021946)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "text_elements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "num" integer, "content" text, "page_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_text_elements_on_page_id" ON "text_elements" ("page_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151031021946"]]
+  [1m[36m (4.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateImageElements (20151031022016)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "image_elements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "num" integer, "path" text, "page_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_image_elements_on_page_id" ON "image_elements" ("page_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151031022016"]]
+  [1m[35m (4.7ms)[0m  commit transaction
+Migrating to CreateSearchLinks (20151102191644)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "search_links" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "lastName" varchar, "firstName" varchar, "location" varchar, "travelStyle" varchar, "storyType" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151102191644"]]
+  [1m[35m (4.1ms)[0m  commit transaction
+Migrating to CreateLocations (20151125053353)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateLocations (20151125053353)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "address" varchar, "latitude" float, "longitude" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151125053353"]]
+  [1m[36m (4.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_image_elements_on_page_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_image_elements_on_page_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pages_on_story_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pages_on_story_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_stories_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_stories_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_text_elements_on_page_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_text_elements_on_page_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddIpToUser (20151125055632)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "ip" varchar[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151125055632"]]
+  [1m[36m (6.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_image_elements_on_page_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_image_elements_on_page_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pages_on_story_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pages_on_story_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_stories_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_stories_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_text_elements_on_page_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_text_elements_on_page_id' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (86.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (10.2ms)
+Completed 200 OK in 197ms (Views: 190.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/about.self-a7d5525149fa268b7146ca6a6547ec4484594aba687fd79f0f8bd9cbd2779f64.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/browse.self-a8d5f06574074d64d1a3f013d96d8a2832a901fbd454f59cbcfc3e045335b8d8.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/jquery.gridster.self-a590861aa26fe63470f59d1b87e6cc8fc4242a8b849587922e9a8b65aad54db7.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/image_elements.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/by_name.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/display_story_links.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/login.self-3f8e0ea9d6603cc468da767f10b03e3e643ffbcce2bb3b7d09ac5f6edd8861b4.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/myStories.self-eaa23c27b9ce3c821f1baf252b37fe78271314d459e43b12c41acb73f8cdbed8.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/search.self-48ff21ce00c08c4d08409373c5687acff8e3dc533982290599a29ebe85642aac.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/story.self-c40b81b54c60a25d067bfebfaad23cf842d519705fb20870e25e8ec611abc152.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/stories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/travelstories.self-27c0f2da0091a9becb1c1eba6be8e6554ddfdd4a28adfb09462d0c56afff04ad.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/text_elements.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/jquery.self-4c7649dd655c61cb850cfd2e71f937c3bbf3e3a752a3499ed8bb9884473fe1dd.js?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/display_story_links.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/image_elements.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/jquery.ba-resize.self-612043f024166623b1564c41353a7a3db4a99bacee6d8c623fe0b7bc9e2ae5a2.js?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/jquery.gridster.self-b19cc0c08191a16c47ff44322cecef504a041313377ee123cfa29ff83a9cc716.js?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/stories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/assets/text_elements.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 22:58:38 -0700
+
+
+Started GET "/login" for 127.0.0.1 at 2015-11-24 22:58:41 -0700
+Processing by StaticPagesController#login as HTML
+  Rendered static_pages/login.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 69ms (Views: 68.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login_existing" for 127.0.0.1 at 2015-11-24 22:58:42 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (10.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 91ms (Views: 90.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2015-11-24 22:58:49 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zb7+XMP5R1QCBxcLouV91UoFJgKNPiqLbiJROv81LT3U9lsHojbATEt0X6z4kkds1JPqgwntsuSe/5cSLnUaMg==", "session"=>{"email"=>"fake@email.new", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "fake@email.new"]]
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 111ms (Views: 102.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2015-11-24 22:58:59 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SE4nSwEI2mbjBAkjbS67mM9MEM9hnrW24MUd6SPJab75BoIQYMddfqp3QYQ3WYEhUdrcTuVNLdkQGNvB8olesQ==", "session"=>{"email"=>"fake@email.new", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "fake@email.new"]]
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 84ms (Views: 83.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2015-11-24 22:59:08 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DrZ7OuqyybqGP+8nIkJ3M5913+xwI4Id1keBCcWDOMq//t5hi31Oos9Mp4B4NU2KAeMTbfTwGnImmkchFMMPxQ==", "session"=>{"email"=>"fake@new.email", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "fake@new.email"]]
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 79ms (Views: 78.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2015-11-24 22:59:16 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XwNYPWCpBFSXWf4pDXrm5U+tHpqCnlwDGLOweVbyjOvuS/1mAWaDTN4qto5XDdxc0TvSGwZNxGzobnZRh7K75A==", "session"=>{"email"=>"fake@generic.email", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "fake@generic.email"]]
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 82ms (Views: 81.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2015-11-24 22:59:20 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3ITI8KTM+76tKtp86ncqK4QH68DgXXG2redAg3R18T9tzG2rxQN8puRZktuwABCSGpEnQWSO6dldOoarpTXGMA==", "session"=>{"email"=>"superfake@email.com", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "superfake@email.com"]]
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 76ms (Views: 74.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2015-11-24 23:00:09 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uzqUCpx1xqW5raPMKDNez1Rop2jGzzbseK0fnDNx/KUKcjFR/bpBvfDe62tyRGR2yv5r6UIcroOIcNm04jHLqg==", "session"=>{"email"=>"superfake@email.com", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "superfake@email.com"]]
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 80ms (Views: 78.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2015-11-24 23:00:22 -0700
+Processing by StaticPagesController#login as HTML
+  Rendered static_pages/login.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 82ms (Views: 81.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/login_new" for 127.0.0.1 at 2015-11-24 23:00:24 -0700
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (5.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (2.2ms)
+Completed 200 OK in 93ms (Views: 87.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-11-24 23:00:39 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2DS+jooRyUT8Gm0iJM/CCCljA61VYLA+P/SEzS4f4AppfBvV695OXLVpJYV+uPixt/XPLNGzKFHPKULl/1/XBQ==", "user"=>{"email"=>"thisisnew@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "LastName"=>"Tho", "FirstName"=>"Mo"}, "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('thisisnew@email.com') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "password_digest", "LastName", "FirstName", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "thisisnew@email.com"], ["password_digest", "$2a$10$kHl7UoSOLeDxkSDlV99db.HAohSofX9CsTZr5PRvxv7sbmddLLb76"], ["LastName", "Tho"], ["FirstName", "Mo"], ["created_at", "2015-11-25 06:00:39.300397"], ["updated_at", "2015-11-25 06:00:39.300397"]]
+  [1m[35m (7.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 86ms (ActiveRecord: 8.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-11-24 23:00:39 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mStory Load (0.1ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 1[0m
+  Rendered users/show.html.erb within layouts/application (14.8ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined local variable or method `currentuser' for #<#<Class:0x007fea10cabde8>:0x0000000481b8a8>):
+    14:   <% end %>
+    15: </table>
+    16: <% current_user.ip = request.remote_ip %>
+    17: <%= currentuser.ip %>
+  app/views/users/show.html.erb:17:in `_app_views_users_show_html_erb__3066037894470197387_37802540'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (9.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (19.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mStory Load (0.2ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 1
+  Rendered users/show.html.erb within layouts/application (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 105ms (Views: 102.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/about.self-a7d5525149fa268b7146ca6a6547ec4484594aba687fd79f0f8bd9cbd2779f64.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/browse.self-a8d5f06574074d64d1a3f013d96d8a2832a901fbd454f59cbcfc3e045335b8d8.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/image_elements.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/login.self-3f8e0ea9d6603cc468da767f10b03e3e643ffbcce2bb3b7d09ac5f6edd8861b4.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/jquery.gridster.self-a590861aa26fe63470f59d1b87e6cc8fc4242a8b849587922e9a8b65aad54db7.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/myStories.self-eaa23c27b9ce3c821f1baf252b37fe78271314d459e43b12c41acb73f8cdbed8.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/by_name.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/display_story_links.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/search.self-48ff21ce00c08c4d08409373c5687acff8e3dc533982290599a29ebe85642aac.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/stories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/story.self-c40b81b54c60a25d067bfebfaad23cf842d519705fb20870e25e8ec611abc152.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/text_elements.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/travelstories.self-27c0f2da0091a9becb1c1eba6be8e6554ddfdd4a28adfb09462d0c56afff04ad.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/jquery.self-4c7649dd655c61cb850cfd2e71f937c3bbf3e3a752a3499ed8bb9884473fe1dd.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/display_story_links.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/image_elements.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/jquery.ba-resize.self-612043f024166623b1564c41353a7a3db4a99bacee6d8c623fe0b7bc9e2ae5a2.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/jquery.gridster.self-b19cc0c08191a16c47ff44322cecef504a041313377ee123cfa29ff83a9cc716.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/stories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/text_elements.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-24 23:01:15 -0700
